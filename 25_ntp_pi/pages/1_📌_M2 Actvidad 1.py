@@ -28,7 +28,9 @@ st.markdown("""
 
 st.header("Solución")
 
-st.title("Solucion - Sebastián Álvarez")
+st.markdown("Solucion - Sebastián Álvarez")
+
+st.markdown("Primeros pasos de Dataframes")
 
 # Crear las Series
 nombres = pd.Series(['Alicia', 'Bob', 'Carlos'])
@@ -39,3 +41,4 @@ ciudades = pd.Series(['Nueva York', 'Londres', 'París'])
 mi_dataframe = pd.DataFrame({'Nombre': nombres, 'Edad': edades, 'Ciudad': ciudades})
 
 # Imprimir el DataFrame
+st.dataframe(mi_dataframe)
