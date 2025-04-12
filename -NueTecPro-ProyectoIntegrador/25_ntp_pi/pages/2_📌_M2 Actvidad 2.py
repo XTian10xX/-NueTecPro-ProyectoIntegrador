@@ -37,6 +37,42 @@ hice una aplicación con Streamlit para capturar estos datos y una que tu, el us
 """)
 
 # Cargar el dataset
-df = pd.read_csv("static/datasets/estudiantes_colombia.csv")
+df = pd.read_csv("estudiantes_colombia.csv")
 
-st.dataframe()
+st.dataframe(df)
+
+opciones_disponibles = st.selectbox(
+    'Selecciona una Opción...',
+    ['1. Ver las 5 primeras filas',
+     '2. Ver las 5 Últimas filas',
+     '3. Resumen de la Base de Datos',
+     '4. Seleccionar Columnas',
+     '5. Filtrar estudiantes']
+)
+
+if opciones_disponibles == '1. Ver las 5 primeras filas':
+    st.dataframe(df.head())
+elif opciones_disponibles == '2. Ver las 5 Últimas filas':
+    st.dataframe(df.tail())
+elif opciones_disponibles == '3. Resumen de la Base de Datos':
+    st.markdown("Con .info:")
+    st.dataframe(df.info())
+    st.markdown("Con .describe:")
+    st.dataframe(df.describe())
+elif opciones_disponibles == '4. Seleccionar Columnas':
+    opciones_para_selecTabla = st.selectbox(
+        'Selecciona la Columna...',
+        ['Id',
+         'Nombre',
+         'Edad',
+         'Ciudad',
+         'Promedio',
+         'Asistencia']
+    )
+
+    if opciones_para_selecTabla == 'Id':
+        tablaId = st.dataframe(df['id'])
+    elif opciones_para_selecTabla == 'Nombre':
+        tablaNom = st.subheader(df['nombre'])
+elif opciones_disponibles == '5. Filtrar estudiantes por Promedio':
+    rango_promedio = st.slider("Rango de Promedio",)
