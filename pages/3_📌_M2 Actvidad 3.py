@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import random
-from faker import Faker
+import faker
 
 # Configuración de la página
 st.set_page_config(   
@@ -33,7 +33,7 @@ st.markdown("""
 st.header("Solución")
 
 # Configurar Faker para Colombia
-fake = Faker('es_CO')
+fake = faker.Faker('es_CO')
 
 # Establecer semilla para reproducibilidad
 np.random.seed(123)
